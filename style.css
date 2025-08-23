@@ -18,8 +18,6 @@ body{
 
 }
 
-
-
 .home ul li{
   display: flex;
   width: 14px;
@@ -42,7 +40,7 @@ body{
 }
 
 .library{
-  min-height: 70vh;
+  min-height: 72vh;
   position: relative;
 }
 
@@ -53,4 +51,45 @@ body{
   gap: 13px;
   position: absolute;
   bottom: 0;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(34, 34, 34);
+}
+
+.header > *{
+  padding: 20px;
+}
+
+.right{
+  margin: 16px 0px;
+}
+
+.beatiffyPlaylists{
+  padding: 16px;
+}
+
+.cardContainer{
+  margin: 30px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.card{
+  width: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #252525;
+}
+
+.card > *{
+ padding-top:10px ;
+}
+
+.card img{
+  width: 100%;
+  object-fit: contain;
 }
