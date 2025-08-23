@@ -38,3 +38,30 @@
 .p1{
   padding: 10px;
 }
+
+/* For WebKit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;   /* Dark track */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;       /* Medium-dark thumb */
+  border-radius: 10px;
+  border: 2px solid #1a1a1a; /* Adds gap effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;       /* Brighter on hover */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #444 #1a1a1a; /* thumb color | track color */
+}

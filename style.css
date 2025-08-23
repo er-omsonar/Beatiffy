@@ -51,6 +51,7 @@ body{
   gap: 13px;
   position: absolute;
   bottom: 0;
+  padding: 10px 0px;
 }
 
 .header{
@@ -76,10 +77,12 @@ body{
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  overflow-y: scroll;
+  max-height: 60vh;
 }
 
 .card{
-  width: 200px;
+  width: 130px;
   padding: 10px;
   border-radius: 5px;
   background-color: #252525;
@@ -107,5 +110,7 @@ body{
 }
 .card:hover .play{
   opacity: 1;
-  top: 160px;
+  top: 145px;
+
 }
+
