@@ -162,3 +162,32 @@ body{
   justify-content: center;
   gap: 16px;
 }
+
+.songList ul{
+  padding: 0 10px;
+}
+
+.songList ul li{
+  list-style-type:decimal;
+  display: flex;
+  gap: 34px;
+  cursor: pointer;
+  padding: 12px 0;
+  border: 1px solid white;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.playnow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.playnow span{
+  font-size: 15px;
+  width: 60px;
+  padding: 12px;
+}
+
