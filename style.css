@@ -174,8 +174,8 @@ body{
   cursor: pointer;
   padding: 12px 0;
   border: 1px solid white;
-  margin: 5px 0;
-  padding: 5px;
+  margin: 10px 0;
+  padding: 10px;
   border-radius: 5px;
 }
 
@@ -191,3 +191,21 @@ body{
   padding: 12px;
 }
 
+.songList {
+  max-height: 55vh;   /* take part of the sidebar height */
+  overflow-y: auto;
+  padding-right: 8px; /* space for scrollbar */
+}
+
+.songList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.songList::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+
+.songList::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
