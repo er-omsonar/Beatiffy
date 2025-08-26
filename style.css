@@ -7,6 +7,21 @@ body{
   background-color: black;
   color: white;
 }
+.logo img{
+  width: 70px;
+}
+
+.logo{
+display: flex;
+align-items: center;
+
+}
+
+.logo p{
+ font-size: 25px;
+ font-style: italic;
+ font-weight: bold;
+}
 
 .left{
   width: 25vw;
@@ -155,6 +170,7 @@ body{
   background-color: rgb(198, 205, 198);
   width: 90%;
   padding: 12px;
+  width: 70vw;
 }
 
 .songbuttons{
@@ -164,13 +180,14 @@ body{
 }
 
 .songList ul{
-  padding: 0 10px;
+  padding: 0 2px;
 }
 
 .songList ul li{
   list-style-type:decimal;
   display: flex;
-  gap: 34px;
+  justify-content: space-between;
+  gap: 12px;
   cursor: pointer;
   padding: 12px 0;
   border: 1px solid white;
@@ -189,6 +206,11 @@ body{
   font-size: 15px;
   width: 60px;
   padding: 12px;
+}
+
+.songList .info{
+  font-size: 13px;
+  width: 344px;
 }
 
 .songList {
