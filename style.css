@@ -8,7 +8,7 @@ body{
   color: white;
 }
 .logo img{
-  width: 70px;
+  width: 60px;
 }
 
 .logo{
@@ -18,7 +18,7 @@ align-items: center;
 }
 
 .logo p{
- font-size: 25px;
+ font-size: 22px;
  font-style: italic;
  font-weight: bold;
 }
