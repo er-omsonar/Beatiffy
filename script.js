@@ -1,4 +1,17 @@
 console.log("lets write some javascript");
+  let currentSong = new Audio;
+  let play = document.getElementById("play");
+  function secondsToMinutesSeconds(seconds) {
+  const minutes = Math.floor(seconds / 60);   // get minutes
+  const secs = Math.floor(seconds % 60);      // get remaining seconds
+
+  // pad with 0 if less than 10
+  const formattedMinutes = String(minutes).padStart(2, "0");
+  const formattedSeconds = String(secs).padStart(2, "0");
+
+  return `${formattedMinutes}:${formattedSeconds}`;
+}
+
 async function getSongs(){
   let a = await fetch("http://127.0.0.1:5500/songs/")
   let response = await a.text();
@@ -15,14 +28,26 @@ async function getSongs(){
   return songs;
 }
  
-const playMusic = (track) =>{
-  let audio = new Audio("/songs/"+track)
-  audio.play()
+const playMusic = (track,pause=false) =>{
+  //let audio = new Audio("/songs/"+track)
+ // audio.play()
+ currentSong.src = "/songs/"+track
+ if(!pause){
+  currentSong.play()
+  play.src = "pause.svg"
+ }
+
+  let songName = decodeURIComponent(track)  
+                    .replace(".mp3", "")
+                    .replace("Golden Palms"," ")
+ document.querySelector(".songinfo").innerHTML = songName 
+ document.querySelector(".songtime").innerHTML = "00:00 / 00:00"
 }
 
 async function main() {
-  let currentSong;
+
   let songs = await getSongs();
+  playMusic(songs[0],true)
   console.log(songs);
   let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
   for (song of songs) {
@@ -54,6 +79,27 @@ async function main() {
       })
 
     })
+
+    play.addEventListener("click", ()=>{
+      if(currentSong.paused){
+        currentSong.play()
+        play.src = "pause.svg"
+      }
+      else{
+        currentSong.pause()
+        play.src = "play.svg"
+      }
+    })
+    currentSong.addEventListener("timeupdate",()=>{
+      console.log(currentSong.currentTime, currentSong.duration)
+      document.querySelector(".songtime").innerHTML = `
+      ${secondsToMinutesSeconds(currentSong.currentTime)}/
+        ${secondsToMinutesSeconds(currentSong.duration)}
+      `
+      document.querySelector(".circle").style.left =
+      (currentSong.currentTime/currentSong.duration) * 100 + "%";
+    })
+
 }
 
 main(); 

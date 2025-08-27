@@ -255,3 +255,18 @@ align-items: center;
   left: 0;
   transition: left 3s;
 }
+
+.songbuttons img{
+  cursor: pointer;
+  
+}
+
+
+.songinfo , .songtime{
+  color: black;
+  padding: 0 12px;
+}
+.abovebar{
+  display: flex;
+  justify-content:space-between ;
+}
