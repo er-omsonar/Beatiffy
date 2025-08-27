@@ -14,8 +14,14 @@ async function getSongs(){
   }
   return songs;
 }
+ 
+const playMusic = (track) =>{
+  let audio = new Audio("/songs/"+track)
+  audio.play()
+}
 
 async function main() {
+  let currentSong;
   let songs = await getSongs();
   console.log(songs);
   let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
@@ -23,7 +29,7 @@ async function main() {
     songUL.innerHTML = songUL.innerHTML +
     
     
-    `<li>
+    `<li data-file="${song}">
                 <img class="invert" src="music.svg" alt="">
                 <div class="info">
                   <div>${song.replaceAll("%20"," ")
@@ -39,8 +45,15 @@ async function main() {
                 </div>
               </li>`
     } 
-  var audio = new Audio(songs[0]);
-//  audio.play();
+  
+    Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach( e =>{
+      e.addEventListener("click", element =>{
+        console.log(e.querySelector(".info").firstElementChild.innerHTML)
+       let track = e.getAttribute("data-file");
+       playMusic(track);
+      })
+
+    })
 }
 
 main(); 
