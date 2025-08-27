@@ -237,12 +237,13 @@ align-items: center;
 
 .seekbar{
   position: absolute;
-  height: 2px;
+  height: 4px;
   width: 98%;
   background: black;
   border-radius: 10px;
   bottom: 0;
   margin: 6px;
+  cursor: pointer;
 }
 
 .circle{
@@ -251,9 +252,9 @@ align-items: center;
   border-radius: 13px;
   background-color: black;
   position: relative;
-  bottom: 6px;
+  bottom: 5px;
   left: 0;
-  transition: left 3s;
+  transition: left 0.5s;
 }
 
 .songbuttons img{
