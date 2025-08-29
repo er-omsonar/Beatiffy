@@ -88,6 +88,10 @@ align-items: center;
   padding: 16px;
 }
 
+.beatiffyPlaylists h1{
+  padding: 6px;
+}
+
 .cardContainer{
   margin: 30px;
   display: flex;
@@ -277,7 +281,13 @@ align-items: center;
 .songinfo , .songtime{
   color: black;
   padding: 0 12px;
+
 }
+
+.songinfo{
+  width: 220px;
+}
+
 .abovebar{
   display: flex;
   justify-content:space-between ;
@@ -319,6 +329,10 @@ align-items: center;
     width: calc(100vw - 73px);
   }
 
+  .right{
+    margin: 0;
+  }
+
   .hamburger{
     display: block;
     cursor: pointer;
@@ -332,5 +346,15 @@ align-items: center;
     justify-content: center;
     margin: 10px;
   }
+
+  .abovebar{
+    flex-direction: column;
+    gap: 23px;
+    align-items: center;
+  }
   
+  .songinfo .songtime{
+    width: auto;
+  }
+
 }
