@@ -173,7 +173,7 @@ align-items: center;
   width: 90%;
   padding: 12px;
   width: 70vw;
-  height: 40px;
+  min-height: 40px;
 }
 
 .songbuttons{
@@ -311,7 +311,12 @@ align-items: center;
   }
 
   .playbar{
-    width: 95vw;
+    width: calc(100vw - 60px);
+    margin: 15px;
+  }
+
+  .seekbar{
+    width: calc(100vw - 73px);
   }
 
   .hamburger{
@@ -319,5 +324,13 @@ align-items: center;
     cursor: pointer;
   }
 
+  .card{
+    width: 90vw;
+  }
+
+  .cardContainer{
+    justify-content: center;
+    margin: 10px;
+  }
   
 }
