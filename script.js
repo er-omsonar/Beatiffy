@@ -1,8 +1,10 @@
 console.log("lets write some javascript");
-let songs;
-let currFolder;
+let songs = [];
+let currFolder = "";
   let currentSong = new Audio;
   let play = document.getElementById("play");
+  const previous = document.getElementById("previous");
+  const next = document.getElementById("next");
   function secondsToMinutesSeconds(seconds) {
     if(isNaN(seconds) || seconds < 0 ){
       return "00:00"
@@ -139,6 +141,57 @@ async function main() {
     addEventListener("change",(e)=>{
       currentSong.volume = parseInt(e.target.value)/100
     })
+    
+    function updateSongListUI(songs) {
+  const songUL = document.querySelector(".songList ul");
+  songUL.innerHTML = "";
+  for (const song of songs) {
+    songUL.innerHTML += `
+    <li data-file="${song}">
+      <img class="invert" src="music.svg" alt="">
+      <div class="info">
+        <div>${song.replaceAll("%20"," ")
+                    .replaceAll("The Grey Room "," ")
+                    .replaceAll(".mp3"," ")
+                    .replaceAll("%26"," ")}</div>
+        <div></div>
+      </div>
+      <div class="playnow">
+        <span>Play Now</span>
+        <img class="invert" src="play.svg" alt="">
+      </div>
+    </li>`;
+  }
+  Array.from(songUL.getElementsByTagName("li")).forEach(e => {
+    e.addEventListener("click", () => {
+      let track = e.getAttribute("data-file");
+      playMusic(track);
+    });
+  });
+}
+ 
+document.querySelectorAll('.cardContainer .card').forEach(card => {
+  card.addEventListener('click', async () => {
+    const folder = card.dataset.folder;
+    console.log("Card clicked, folder:", folder);
+    if (folder) {
+      songs = await getSongs(folder);
+      console.log("Loaded songs:", songs);
+      if(songs.length > 0){
+        playMusic(songs[0]);
+        updateSongListUI(songs);
+      } else {
+        console.warn("No songs found in folder:", folder);
+      }
+    } else {
+      console.warn("Card missing data-folder attribute");
+    }
+  });
+});
+
+
 }
 
-main(); 
+window.addEventListener("DOMContentLoaded", main);
+
+
