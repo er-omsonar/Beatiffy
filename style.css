@@ -110,6 +110,11 @@ align-items: center;
   overflow: hidden;
 }
 
+.card:hover{
+  background-color: rgb(54, 54, 54);
+  cursor: pointer;
+}
+
 .card > *{
  padding-top:10px ;
 }
@@ -392,6 +397,6 @@ align-items: center;
 
 @media (max-width: 550px){
  .card{
-  width: 100vw;
+  width: 85vw;
  }
 }
