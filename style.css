@@ -277,6 +277,11 @@ align-items: center;
   
 }
 
+.timevol{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
 .songinfo , .songtime{
   color: black;
@@ -286,6 +291,22 @@ align-items: center;
 
 .songinfo{
   width: 220px;
+}
+
+.songtime{
+  width: 125px;
+}
+
+.volume{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.range input{
+  cursor: pointer;
 }
 
 .abovebar{
@@ -316,6 +337,16 @@ align-items: center;
     cursor: pointer;
   }
 
+  .timevol{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    gap: 13px;
+    cursor: pointer;
+
+  }
+
   .right{
     width: 100vw;
   }
@@ -339,7 +370,7 @@ align-items: center;
   }
 
   .card{
-    width: 90vw;
+    width: 46vw;
   }
 
   .cardContainer{
@@ -357,4 +388,10 @@ align-items: center;
     width: auto;
   }
 
+}
+
+@media (max-width: 550px){
+ .card{
+  width: 100vw;
+ }
 }
