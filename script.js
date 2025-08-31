@@ -1,4 +1,4 @@
-console.log("lets write some javascript");
+
 let songs = [];
 let currFolder = "";
   let currentSong = new Audio;
