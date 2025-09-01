@@ -154,6 +154,20 @@ next.addEventListener("click", () => {
       }
     });
   });
+    // Hamburger menu toggle
+const hamburger = document.querySelector(".hamburger");
+const leftSidebar = document.querySelector(".left");
+const closeBtn = document.querySelector(".close");
+
+hamburger.addEventListener("click", () => {
+  leftSidebar.style.left = "0"; // show sidebar
+});
+
+closeBtn.addEventListener("click", () => {
+  leftSidebar.style.left = "-100%"; // hide sidebar
+});
+
+
 }
 
 window.addEventListener("DOMContentLoaded", main);
