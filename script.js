@@ -31,7 +31,10 @@ async function getSongs(folder) {
 }
 
  
+let currentTrack = ""; // store current track filename
+
 const playMusic = (track, pause = false) => {
+  currentTrack = track; // update current track
   currentSong.src = `/songs/${currFolder}/${track}`;
 
   if (!pause) {
@@ -47,6 +50,7 @@ const playMusic = (track, pause = false) => {
   document.querySelector(".songinfo").innerHTML = songName;
   document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
 };
+
 
 function updateSongListUI(songs) {
   const songUL = document.querySelector(".songList ul");
@@ -115,13 +119,18 @@ async function main() {
 
   // Previous / Next
   previous.addEventListener("click", () => {
-    let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
-    if ((index - 1) >= 0) playMusic(songs[index - 1]);
-  });
-  next.addEventListener("click", () => {
-    let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
-    if ((index + 1) < songs.length) playMusic(songs[index + 1]);
-  });
+  let index = songs.indexOf(currentTrack);
+  if (index > 0) {
+    playMusic(songs[index - 1]);
+  }
+});
+
+next.addEventListener("click", () => {
+  let index = songs.indexOf(currentTrack);
+  if (index < songs.length - 1) {
+    playMusic(songs[index + 1]);
+  }
+});
 
   // Volume slider
   document.querySelector(".range input").addEventListener("change", (e) => {
